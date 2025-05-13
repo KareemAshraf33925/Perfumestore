@@ -1,0 +1,33 @@
+/* start-gamil */
+.gmail{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+}
+.gmail .btn-gmail{
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 25px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: row;
+    padding:0.5rem 1.5rem;
+    text-align: center;
+} 
+.gmail .btn-gmail p{
+    margin-left: 10px;
+}
+      
+/* end-gamil */
+/* start-responsive */
+@media(min-width:320px) and (max-width:445px){
+    .gmail .btn-gmail {
+        flex-direction: column;
+        padding: 0.5rem 0.5rem;
+    }
+}
+/* end-responsive */

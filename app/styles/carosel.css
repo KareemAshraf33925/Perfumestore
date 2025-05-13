@@ -1,0 +1,23 @@
+/* start-header */
+.header-banner{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 150px;
+height: 100dvh;
+margin-top: 100px;
+}
+/* end-header */
+/* start-reponsive */
+@media(min-width:768px) and (max-width:885px){
+    .header-banner{
+        gap: 30px;
+        }
+}
+@media(min-width:320px) and (max-width:445px){
+    .header-banner{
+        flex-direction: column-reverse;
+        gap: 20px;
+        }
+}
+/* end-resposive */

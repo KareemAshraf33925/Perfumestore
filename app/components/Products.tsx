@@ -50,14 +50,14 @@ const Products = () => {
         fetchProduct()
     },[])
   return (
-    <div className="my-20 flex justify-start items-start flex-col gap-7">
+    <div className="my-20 flex justify-start items-start flex-col gap-7" style={{backgroundColor:"#fffbeb"}}>
     <h2 className="capitalize text-2xl ml-10">shoping< ShoppingCartIcon/></h2>
    
-    <div className=" flex justify-center items-center flex-row flex-wrap gap-14 ml-14  ">
+    <div className=" flex justify-center items-center flex-row flex-wrap gap-14 ml-1  ">
       
       {loading ?(products.map((product:Product)=>(
              
-             <Card sx={{ maxWidth: 345  }} key={product.id}>
+             <Card sx={{ maxWidth: 300  }} key={product.id}>
       <CardMedia/>
       {/* --- */}
       <HoverCard>

@@ -1,4 +1,5 @@
 "use client"
+import"../styles/header.css"
 import Link from "next/link";
 import { onAuthStateChanged,User } from "firebase/auth";
 import {
@@ -19,10 +20,12 @@ import Logo from"../assets/logo.png";
 import Image from 'next/image';
 import { useSelector } from "react-redux";
 import {auth} from"../../firebase/firebase.config";
+import MenuIcon from '@mui/icons-material/Menu';
 const Header = () => {
-   const [user,setuser]= useState<boolean>(false);
-   const [currentUser,setCurrentUser]= useState<User |null>();
-   const basket=useSelector((state:any)=>state.basket.basket);
+   const [user,setuser]= useState<boolean>(false); //state of user
+   const [currentUser,setCurrentUser]= useState<User |null>();//user login
+   const [sidebar,setSidebar]=useState<boolean>(false)//alert side bar
+   const basket=useSelector((state:any)=>state.basket.basket);//get the products
    
   //  get information user
    useEffect(()=>{
@@ -51,21 +54,18 @@ const Header = () => {
    
 
   return (
-    <header className="flex justify-between items-center flex-wrap w-full shadow-2xl p-7 bg-amber-50
-    fixed top-0 right-0 left-0 z-50 flex-row sm:flex-col sm:justify-center
-    md:flex-row md:justify-between
-    lg:flex-row lg:justify-between ">
-       <div className='flex justify-center items-center gap-x-2'>
-           <Image src={Logo} alt="logo" className='w-12 h-12'/>
+    <header className="header">
+       <div className='logo'>
+           <Image src={Logo} alt="logo" className='imgWidth'/>
             <h3 className="text-2xl capitalize text-black">perfumeStore</h3>
            </div>
-        
-        <ul className="items flex justify-center items-center gap-6">
+        <nav className="navbar">
+        <ul className={ sidebar?"items active":"items"}>
             <li><Link href={"/"} className="capitalize text-xl text-black">Home</Link></li>
-            <li>{!user ? ( <HoverCard >
+            <li>{!user ? ( <HoverCard>
                 <HoverCardTrigger className="capitalize text-xl cursor-pointer text-black ">
                <PersonIcon className="text-black"/>  Account</HoverCardTrigger>
-                <HoverCardContent className="flex flex-col justify-start items-start w-full bg-amber-50">
+                <HoverCardContent className="flex flex-col justify-start items-start w-full bg-amber-50 ">
                 Hellow {currentUser?.displayName}
                 <hr/>
                 <Link href={"/"}className="my-3 flex gap-2 text-black"><SettingsIcon className="text-black"/>Account Setting</Link>
@@ -76,11 +76,11 @@ const Header = () => {
                 <hr/>
                  <Link href={"/login"}className="my-3 flex gap-2 text-black"onClick={()=>logOut()} >< LogoutIcon className="text-black"/>Log out</Link>
                 </HoverCardContent>
-                </HoverCard>):(  <HoverCard>
+                </HoverCard>):(  <HoverCard >
                 <HoverCardTrigger className="capitalize text-xl cursor-pointer text-black">
                 <PersonIcon className="text-black"/>  Account
                 </HoverCardTrigger>
-                <HoverCardContent className="flex flex-col justify-start items-start w-full bg-amber-50 text-black">
+                <HoverCardContent className="flex flex-col justify-start items-start w-full bg-amber-50 text-black z-50">
                 Welcome To ParfStore
                  <Link href={"/login"}className="my-3 w-full"><Button className="bg-amber-100 py-3  w-full cursor-pointer">Sign In</Button></Link>
                 <hr/>
@@ -95,8 +95,8 @@ const Header = () => {
         
         
         </ul>
-        
-               
+          <span className="bar" onClick={()=>setSidebar(!sidebar)}><MenuIcon/></span>
+        </nav>
     </header>
   )
 }

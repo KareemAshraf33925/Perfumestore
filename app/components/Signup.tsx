@@ -1,4 +1,5 @@
 "use client"
+import"../styles/signup.css"
 import { useForm, SubmitHandler } from "react-hook-form";
 import {z} from"zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -64,12 +65,10 @@ const Signup =() => {
     ">
         
       <form onSubmit={handleSubmit(onSubmit)} className="flex justify-start items-start flex-col border-0  bg-amber-50 w-3/4 mt-12  shadow-xl rounded-md p-4" >
-      <div className="gamil  w-full flex justify-center items-center">
-       <button className="  bg-black text-white my-3 ml-2 cursor-pointer py-2 px-20 rounded-md  text-lg
-       flex justify-center items-center
-       " onClick={loginGoogle} type="button">
+      <div className="gmail">
+       <button className=" btn-gmail " onClick={loginGoogle} type="button">
        <EmailIcon/>
-       Login With Gmail
+       <p>Login With Gmail</p>
        </button>
        </div>
       <input type="text" placeholder="FirstName" {...register("firstname")}  className="py-3 w-full my-3 border-0  outline-0 px-2 "

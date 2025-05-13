@@ -1,5 +1,6 @@
  "use client"
-import { useForm, SubmitHandler } from "react-hook-form";
+import"../styles/login.css"
+ import { useForm, SubmitHandler } from "react-hook-form";
 import {z} from"zod";//zod validation 
 import { zodResolver } from "@hookform/resolvers/zod";
 import {login} from"../../firebase/auth";
@@ -55,12 +56,12 @@ const Login = () => {
     <div className=" w-full flex justify-center items-center h-dvh">
       <form onSubmit={handleSubmit(onSubmit)} className="flex justify-start items-start flex-col  bg-amber-50 w-3/4 mt-12 
       shadow-xl rounded-md p-4" >
-       <div className="gamil  w-full flex justify-center items-center">
-       <button className=" bg-black text-white my-3 ml-2 cursor-pointer py-2 px-20 rounded-md  text-lg
-       flex justify-center items-center
-       " onClick={loginGoogle} type="button">
-       <EmailIcon/>
+       <div className="gamil">
+       <button className="btn-gamil" onClick={loginGoogle} type="button">
+       <EmailIcon />
+       <p>
        Login With Gmail
+       </p>
        </button>
        
        </div>

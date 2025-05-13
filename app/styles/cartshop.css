@@ -1,4 +1,29 @@
-.shop-cart{
+.cart{
+padding: 7rem 0;
+height: 100dvh;
+}
+.cart .container-fluid{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+}
+.cart .container-fluid .row{
+  background-color: #fffbeb;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  box-shadow: 0px 1px 5px 5px rgba(0,0,0,0.2);
+  width: 75%;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+
+.cart .container-fluid .row .shop-cart{
+  display: block;
+  margin: 1.25rem;
     animation-name: Move;
     animation-duration: 5s;
     animation-iteration-count: infinite;
@@ -6,12 +31,50 @@
     animation-timing-function: ease-in-out;   
      
 }
+.cart .container-fluid .row .products{
+    overflow: auto;
+    height: 60%;
+    width: 100%;
+    background-color: #fff;
+    padding: 2rem;
+}
+.cart .container-fluid .row .products .product{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.25rem 0;
+}
+.cart .container-fluid .row .products .product .img{
+  width: 200px;
+  height: 125px;
+}
+.cart .container-fluid .row .products .product .name-salary-count{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.cart .container-fluid .row .products .product .name-salary-count .increase-decrease-amount{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+.cart .container-fluid .row .order-product{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+padding: 0 2rem;
+margin-top: 1.25rem;
+}
 @keyframes Move{
     from{
         transform: translateX(0);
     }
     to{
-        transform: translateX(950px);
+        transform: translateX(100%);
     }
 }
 /* loader */
@@ -50,3 +113,31 @@
     50% { left: 0px; opacity: 1 }
     52%, 100% { left: -5px; opacity: 0; }
   }
+  /* start-responsive */
+  @media(min-width:320px) and (max-width:445px){
+    .cart .container-fluid .row .products {
+      height: 100%;
+      padding: 0rem;
+    }
+  .cart .container-fluid .row .products .product .img{
+    width: 150px;
+    height: 150px;
+  }
+  .cart .container-fluid .row .products .product {
+    margin: 1rem 0;
+    flex-direction: column;
+    position: relative;
+}
+.cart .container-fluid .row .products .product .clearProduct{
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.cart .container-fluid .row .order-product {
+  padding: 0 0rem;
+  flex-direction: column;
+  gap: 10px;
+}
+  }
+  /* end-responsive */

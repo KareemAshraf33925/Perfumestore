@@ -3,7 +3,7 @@ import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 const nextConfig: NextConfig = {
   /* config options here */ 
-    output:"export",
+    // output:"export",
 };
 
 export default withFlowbiteReact(nextConfig);
